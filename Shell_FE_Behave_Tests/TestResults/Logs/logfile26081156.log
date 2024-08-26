@@ -1,0 +1,21 @@
+2024-08-26 11:42:58,883 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
+2024-08-26 11:43:34,814 :INFO :SeleniumUtilities: click_element :Clicked on the element.
+2024-08-26 11:43:39,545 :INFO :SeleniumUtilities: send_text :Sent text adarshmeledam@gmail.com to the element.
+2024-08-26 11:43:39,732 :INFO :SeleniumUtilities: click_element :Clicked on the element.
+2024-08-26 11:43:41,157 :INFO :SeleniumUtilities: send_text :Sent text Ada@7338928 to the element.
+2024-08-26 11:43:41,445 :INFO :SeleniumUtilities: click_element :Clicked on the element.
+2024-08-26 11:43:42,503 :INFO :SeleniumUtilities: call_twitter_api :Status Code: 201
+2024-08-26 11:43:42,525 :INFO :SeleniumUtilities: call_twitter_api :Response JSON:
+2024-08-26 11:43:46,013 :INFO :BrowserUtilities: navigate_to_url :Navigated to the URL: https://x.com/adarshmele37994/status/1827952541470196216.
+2024-08-26 11:44:06,329 :INFO :FileUtilities: append_dictionary_into_json :Either file is missing or is not readable, creating file...
+2024-08-26 11:44:06,360 :INFO :FileUtilities: append_dictionary_into_json :File updated with contents. Filename: TestResult.json.
+2024-08-26 11:44:06,366 :INFO :BrowserUtilities: after_scenario :Test case ID and status value:{165109: 'passed'}
+2024-08-26 11:44:32,202 :INFO :SeleniumUtilities: click_element :Clicked on the element.
+2024-08-26 11:44:34,783 :INFO :SeleniumUtilities: send_text :Sent text parthvenkatesh@zohomail.in to the element.
+2024-08-26 11:44:35,191 :INFO :SeleniumUtilities: send_text :Sent text Par@98124 to the element.
+2024-08-26 11:44:53,411 :INFO :SeleniumUtilities: click_element :Clicked on the element.
+2024-08-26 11:44:54,977 :INFO :SeleniumUtilities: call_linkedin_api :urn:li:share:7233718534667657217
+2024-08-26 11:45:05,137 :INFO :BrowserUtilities: navigate_to_url :Navigated to the URL: https://www.linkedin.com/feed/update/urn:li:share:7233718534667657217.
+2024-08-26 11:45:19,009 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 11:45:23,221 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 11:45:24,826 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.

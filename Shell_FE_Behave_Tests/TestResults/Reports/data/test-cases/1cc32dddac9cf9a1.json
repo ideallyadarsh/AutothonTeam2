@@ -1,0 +1,109 @@
+{
+  "uid" : "1cc32dddac9cf9a1",
+  "name" : "Test light theme controls in views",
+  "fullName" : "Android Demo: Test light theme controls in views",
+  "historyId" : "64ba2d0cddc762008f61223fd66a416c",
+  "time" : {
+    "start" : 1638953871930,
+    "stop" : 1638953874526,
+    "duration" : 2596
+  },
+  "status" : "broken",
+  "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n\n",
+  "statusTrace" : "  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1456, in run\n    match.run(runner.context)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1903, in run\n    self.func(context, *args, **kwargs)\n  File \"features\\steps\\AndroidDemoSteps.py\", line 15, in open_views\n    context.api_Demos_functions.click_controls()\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\FunctionLibrary\\ApiDemoAppFunctions.py\", line 27, in click_controls\n    AndroidUtilities.is_element_displayed(self.apiDemosControls.get_controls_view())\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\ControlLibrary\\ApiDemoAppControls.py\", line 28, in get_controls_view\n    return self.driver.find_element(*ApiDemoAppControls.control_tab)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\webdriver.py\", line 414, in find_element\n    return self.execute(RemoteCommand.FIND_ELEMENT, {'using': by, 'value': value})['value']\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 31, in check_response\n    raise wde\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 26, in check_response\n    super().check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n\n",
+    "statusTrace" : "  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1456, in run\n    match.run(runner.context)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1903, in run\n    self.func(context, *args, **kwargs)\n  File \"features\\steps\\AndroidDemoSteps.py\", line 15, in open_views\n    context.api_Demos_functions.click_controls()\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\FunctionLibrary\\ApiDemoAppFunctions.py\", line 27, in click_controls\n    AndroidUtilities.is_element_displayed(self.apiDemosControls.get_controls_view())\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\ControlLibrary\\ApiDemoAppControls.py\", line 28, in get_controls_view\n    return self.driver.find_element(*ApiDemoAppControls.control_tab)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\webdriver.py\", line 414, in find_element\n    return self.execute(RemoteCommand.FIND_ELEMENT, {'using': by, 'value': value})['value']\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 31, in check_response\n    raise wde\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 26, in check_response\n    super().check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+    "steps" : [ {
+      "name" : "Given I have launched the apidemos app",
+      "time" : {
+        "start" : 1638953871932,
+        "stop" : 1638953873531,
+        "duration" : 1599
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "When I test views",
+      "time" : {
+        "start" : 1638953873532,
+        "stop" : 1638953873636,
+        "duration" : 104
+      },
+      "status" : "broken",
+      "statusMessage" : "selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n\n",
+      "statusTrace" : "  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1456, in run\n    match.run(runner.context)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\behave\\model.py\", line 1903, in run\n    self.func(context, *args, **kwargs)\n  File \"features\\steps\\AndroidDemoSteps.py\", line 15, in open_views\n    context.api_Demos_functions.click_controls()\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\FunctionLibrary\\ApiDemoAppFunctions.py\", line 27, in click_controls\n    AndroidUtilities.is_element_displayed(self.apiDemosControls.get_controls_view())\n  File \"C:\\Users\\saktivel.rajasekar\\Desktop\\Appium_Framework\\Python_Automation%20Framework\\Shell_FE_Behave_Tests\\MobileApplicationLibrary\\ControlLibrary\\ApiDemoAppControls.py\", line 28, in get_controls_view\n    return self.driver.find_element(*ApiDemoAppControls.control_tab)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\webdriver.py\", line 414, in find_element\n    return self.execute(RemoteCommand.FIND_ELEMENT, {'using': by, 'value': value})['value']\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\webdriver.py\", line 321, in execute\n    self.error_handler.check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 31, in check_response\n    raise wde\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\appium\\webdriver\\errorhandler.py\", line 26, in check_response\n    super().check_response(response)\n  File \"C:\\Users\\saktivel.rajasekar\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\selenium\\webdriver\\remote\\errorhandler.py\", line 242, in check_response\n    raise exception_class(message, screen, stacktrace)\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Then I verify checkbox and radio buttons",
+      "time" : {
+        "start" : 1638953874526,
+        "stop" : 1638953874526,
+        "duration" : 0
+      },
+      "status" : "skipped",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : false,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "3d368db5edc05a6b",
+      "name" : "screenshot",
+      "source" : "3d368db5edc05a6b.png",
+      "type" : "image/png",
+      "size" : 79511
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "feature",
+    "value" : "Android Demo"
+  }, {
+    "name" : "framework",
+    "value" : "behave"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1cc32dddac9cf9a1.json",
+  "parameterValues" : [ ]
+}

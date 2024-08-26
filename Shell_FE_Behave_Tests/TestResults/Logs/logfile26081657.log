@@ -1,0 +1,5 @@
+2024-08-26 16:06:58,461 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
+2024-08-26 16:07:58,015 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 16:08:08,527 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 16:08:15,648 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 16:27:36,003 :INFO :AndroidUtilities :Took screenshot and saved as Mobile_light_theme_controls_in_views_I_upload_the_image_26081633.png in screenshots folder.

@@ -1,0 +1,6 @@
+2024-08-26 15:04:57,156 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
+2024-08-26 15:05:35,624 :INFO :FileUtilities: append_dictionary_into_json :File updated with contents. Filename: TestResult.json.
+2024-08-26 15:05:35,624 :INFO :BrowserUtilities: after_scenario :Test case ID and status value:{165109: 'passed'}
+2024-08-26 15:05:45,964 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 15:05:50,705 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 15:05:52,765 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.

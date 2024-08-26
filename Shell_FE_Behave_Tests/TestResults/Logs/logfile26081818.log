@@ -1,0 +1,7 @@
+2024-08-26 18:29:19,995 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
+2024-08-26 18:29:56,808 :INFO :FileUtilities: append_dictionary_into_json :Either file is missing or is not readable, creating file...
+2024-08-26 18:29:56,812 :INFO :FileUtilities: append_dictionary_into_json :File updated with contents. Filename: TestResult.json.
+2024-08-26 18:29:56,826 :INFO :BrowserUtilities: after_scenario :Test case ID and status value:{165109: 'passed'}
+2024-08-26 18:30:08,901 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
+2024-08-26 18:30:10,810 :INFO :FileUtilities: copy_file_to_directory :File is moved successfully to destination. Filename: C:\Users\parth.venkatesh\Desktop\Auto\Test_Autothon/Shell_FE_Behave_Tests/TestResults/AzureTestResultHistory/TestResult.json.
+2024-08-26 18:30:10,815 :INFO :FileUtilities: delete_file :File deleted successfully. Filename: TestResult.json.
