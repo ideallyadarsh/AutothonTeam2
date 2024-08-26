@@ -39,10 +39,7 @@ jobs:
 
       - name: Install  npm Appium Package
         run: npm install -g appium
-        
-      - name: Start Appium Server
-        run: appium --base-path=/wd/hub
-        
+                
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
