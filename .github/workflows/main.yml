@@ -41,7 +41,7 @@ jobs:
         run: npm install -g appium
         
       - name: Start Appium Server
-        run: appium --base-path = /wd/hub
+        run: appium --base-path=/wd/hub
         
       - name: Run behave tests
         run: |
