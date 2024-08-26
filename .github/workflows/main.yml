@@ -40,7 +40,7 @@ jobs:
         run: |
           $env:ANDROID_HOME = "$env:USERPROFILE\android-sdk"
           choco install openjdk11 -y
-          Invoke-WebRequest -Uri https://dl.google.com/android/repository/commandlinetools-win-6609375_latest.zip-OutFile android-sdk.zip
+          Invoke-WebRequest -Uri https://dl.google.com/android/repository/commandlinetools-win-6609375_latest.zip -OutFile android-sdk.zip
           Expand-Archive -Path android-sdk.zip -DestinationPath $env:ANDROID_HOME & "$env:ANDROID_HOME\cmdline-tools\latest\bin\sdkmanager.bat" --licenses & "$env:ANDROID_HOME\cmdline-tools\latest\bin\sdkmanager.bat" "platform-tools" "platforms;android-30"
  
       - name: Run behave tests
