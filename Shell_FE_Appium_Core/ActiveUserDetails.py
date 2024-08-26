@@ -22,7 +22,9 @@ class ActiveUsers:
     @staticmethod
     def get_project_name_azure():
         if 'TF_BUILD' in os.environ:
-            return "AzurePipeline_Project"
+            return "AzurePipeline_Project"        
+        elif 'GITHUB_ACTIONS' in os.environ:
+            return "GitHubActions_Project"
         else:
             project_name = ActiveUsers.get_project_name()
             return project_name
