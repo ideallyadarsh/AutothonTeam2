@@ -35,16 +35,34 @@ jobs:
  
       - name: Install Allure CLI
         run: npm install -g allure-commandline --save-dev
+
  
       - name: Set up Android SDK
         run: |
           $env:ANDROID_HOME = "$env:USERPROFILE\android-sdk"
           choco install openjdk11 -y
           Invoke-WebRequest -Uri https://dl.google.com/android/repository/commandlinetools-win-6609375_latest.zip -OutFile android-sdk.zip
-          Expand-Archive -Path android-sdk.zip -DestinationPath $env:ANDROID_HOME 
-          & "$env:ANDROID_HOME\cmdline-tools\latest\bin\sdkmanager.bat" --licenses 
-          & "$env:ANDROID_HOME\cmdline-tools\latest\bin\sdkmanager.bat" "platform-tools" "platforms;android-30"
- 
+
+          Expand-Archive -Path android-sdk.zip -DestinationPath $env:ANDROID_HOME -Force
+          Get-ChildItem -Path $env:ANDROID_HOME -Recurse
+          $sdkManagerPath = Join-Path -Path $env:ANDROID_HOME -ChildPath 'cmdline-tools\latest\bin\sdkmanager.bat'
+          if (Test-Path $sdkManagerPath) {
+          & $sdkManagerPath --licenses
+          } else {
+          Write-Error "sdkmanager.bat not found at $sdkManagerPath"
+          }
+          if (Test-Path $sdkManagerPath) {
+          & $sdkManagerPath "platform-tools" "platforms;android-30"
+          } else {
+          Write-Error "sdkmanager.bat not found at $sdkManagerPath"
+          }
+
+      - name: Install  npm Appium Package
+        run: npm install -g allure-commandline --save-dev
+        
+      - name: Start Appium Server
+        run: appium --base-path = /wd/hub
+        
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
