@@ -1,0 +1,11 @@
+{
+  "platformtype" : "iOS",
+  "runAppWithBundleId" : "true",
+  "applicationType" : "native",
+  "platformName" : "iOS",
+  "platformVersion" : "15.0",
+  "deviceName" : "iPhone 8",
+  "automationName" : "xcuitest",
+  "udid" : "58E29D1-8DEB-496E-B898-AF5507C6CAD9",
+  "bundleId"  : "com.apple.mobilesafari"
+}

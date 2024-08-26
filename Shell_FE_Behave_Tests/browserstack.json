@@ -1,0 +1,78 @@
+{
+  "user": "kallappakannamuc_6mbGUQ",
+  "key": "sqtMtSFBdfnzydPxpoud",
+  "webServer": "hub.browserstack.com",
+  "appServer": "hub-cloud.browserstack.com",
+
+  "appCapabilities": {
+    "project": "Browser Stack Appium Parallel Execution_24Mar",
+    "build": "Browser Stack Appium Parallel Execution_24Mar",
+    "name": "API Demo app_24Mar",
+    "browserstack.debug": true,
+    "app": "bs://69c8119d1eaca4f126599b7b757bf9c8bcd480a0"
+  },
+  "webEnvironments": [
+    {
+      "os_version": "10",
+      "resolution": "1920x1080",
+      "browser": "Edge",
+      "browser_version": "96.0",
+      "os": "Windows",
+      "name": "Windows browser test_Edge",
+      "build": "BStack-[Python] Parallel Build_0124"
+    },
+    {
+      "os_version": "10",
+      "resolution": "1920x1080",
+      "browser": "Chrome",
+      "browser_version": "96.0",
+      "os": "Windows",
+      "name": "Windows browser test_Chrome",
+      "build": "BStack-[Python] Parallel Build_0121"
+    },
+    {
+      "os_version": "Big Sur",
+      "resolution": "1920x1080",
+      "browser": "Safari",
+      "browser_version": "14.1",
+      "os": "OS X",
+      "name": "Mac browser test_Safari",
+      "build": "BStack-[Python] Parallel Build_0121"
+    },
+    {
+      "os_version": "Big Sur",
+      "resolution": "1920x1080",
+      "browser": "Firefox",
+      "browser_version": "latest",
+      "os": "OS X",
+      "name": "Mac browser test_Safari",
+      "build": "BStack-[Python] Parallel Build_0121"
+    },
+    {
+      "browserName": "Android",
+      "device": "Samsung Galaxy S9 Plus",
+      "realMobile": "true",
+      "os_version": "9.0",
+      "name": "Mobile browser test_Android",
+      "build": "BStack-[Python] Sample Build_0121"
+    },
+    {
+      "browserName": "iPhone",
+      "device": "iPhone 11",
+      "realMobile": "true",
+      "os_version": "14.0",
+      "name": "Mobile browser test_iOS",
+      "build": "BStack-[Python] Sample Build_0121"
+    }
+  ],
+  "appEnvironments": [
+    {
+      "device": "Google Pixel 3",
+      "os_version": "9.0"
+    },
+     {
+      "device": "Samsung Galaxy S10e",
+      "os_version": "9.0"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "bundleId" : "com.apple.mobilesafari",
+  "UIKitCatalog": "com.example.apple-samplecode.UICatalogmyxcode2794",
+  "appPackage": "io.appium.android.apis",
+  "appActivity" : "io.appium.android.apis.ApiDemos",
+  "chrome" : {
+    "appPackage" : "com.android.chrome",
+    "appActivity": "com.google.android.apps.chrome.Main"
+  }
+}
