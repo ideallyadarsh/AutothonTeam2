@@ -2,4 +2,4 @@
 *.pyc
 venv
 *.ini
-Shell_FE_Behave_Tests/Reports/
+Shell_FE_Behave_Tests/TestResults
