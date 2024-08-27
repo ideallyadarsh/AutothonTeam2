@@ -50,6 +50,7 @@ jobs:
           allure generate TestResults/AllureJson --clean -o TestResults/Reports
  
       - name: Upload Allure Report as an Artifact
+        if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
