@@ -48,7 +48,7 @@ jobs:
       - name: Generate Allure Report
         run: |
           allure generate TestResults/AllureJson --clean -o TestResults/Reports
-          working-directory: ${{ github.workspace }}
+          working-directory: ${{ github.workspace }}/TestAutoThon/Shell_FE_Behave_Tests
  
       - name: Upload Allure Report as an Artifact
         if: success() || failure()
