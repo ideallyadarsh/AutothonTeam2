@@ -1,0 +1,121 @@
+name: Allure_Report_Test
+on:
+  push:
+    branches:
+      - allure_test
+jobs:
+  Test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python 3.11.2
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11.2
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # - name: Create config file
+      #   run: |
+      #     C:
+      #     cd C:/ProgramData
+      #     mkdir pip
+      #     cd pip
+      #     echo [global] >> pip.ini
+      #     echo index-url=https://USERNAME:PAT_TOKEN@sede-it-esm.pkgs.visualstudio.com/9c266cd3-dfb9-4151-9186-30803982f7c1/_packaging/ShellFESeleniumPythonCore_Alpha/pypi/simple/ >> pip.ini
+      
+      # - name: Install Core Packages
+      #   run: |
+      #     pip install Shell-FE-Selenium-Core
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Specify your Node.js version
+ 
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
+
+
+      - name: Install  npm Appium Package
+        run: npm install -g appium
+      
+      - name: Execute Behave tests
+        run: |
+          cd Shell_FE_Behave_Tests
+          behave --define remote=True --no-capture -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features
+      
+      - name: Upload Test Results
+        if: success() || failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: Test Results
+          path: Shell_FE_Behave_Tests/TestResults
+      
+      - name: Copy Test Results
+        if: always()
+        run: |
+          cp -Lpr Shell_FE_Behave_Tests/TestResults/JunitReports test-results
+        shell: bash
+
+      - name: Copy Allure JSON
+        if: always()
+        run: |
+          cp -Lpr Shell_FE_Behave_Tests/TestResults/AllureJson allure-results
+        shell: bash
+      
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+          files: |
+            test-results/TESTS-*.xml
+
+      - name: Upload Test Evidence
+        if: success() || failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: Shell_FE_Behave_Tests/TestResults/Screenshots/*.png
+
+      - name: Publish Allure Results
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: test_reports
+          PUBLISH_DIR: allure-results
+
+  report:
+    name: Allure Report
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ test ]
+    steps:
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: test_reports
+          path: test_reports
+
+      - name: Allure Report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          allure_results: test_reports
+          allure_history: allure-history
+          keep_reports: 5
+      
+      - name: Publish Allure Report
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
