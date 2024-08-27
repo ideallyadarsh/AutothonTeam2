@@ -16,6 +16,9 @@ def wait_for_page_to_load(driver, timeout=10):
         lambda d: d.execute_script('return document.readyState') == 'complete'
     )
 
+def scroll_into_center(driver, element):
+    driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
+
 class AutothonFunctions:
 
     def __init__(self):
@@ -26,24 +29,33 @@ class AutothonFunctions:
         BrowserUtilities.maximize_window()
         SeleniumBase.driver.get("https://www.x.com")
         time.sleep(5)
+        SeleniumUtilities.click_element(self.autoControls.get_remove_tnc())
+        scroll_into_center(SeleniumBase.driver, self.autoControls.get_sign_in())
         SeleniumUtilities.click_element(self.autoControls.get_sign_in())
-        # SeleniumUtilities.send_text(self.autoControls.get_element_by_xpath('username'),"adarshmele37994")
+
         SeleniumUtilities.send_text(self.autoControls.get_username(),"adarshmeledam@gmail.com")
         SeleniumUtilities.click_element(self.autoControls.get_next())
+        try:
+            SeleniumUtilities.is_element_displayed(self.autoControls.get_enter_username())
+            SeleniumUtilities.send_text(self.autoControls.get_enter_username(),"adarshmele37994")
+            SeleniumUtilities.click_element(self.autoControls.get_next())
+        except:
+            pass
         SeleniumUtilities.send_text(self.autoControls.get_password(),"Meledam@526902")
         SeleniumUtilities.click_element(self.autoControls.get_login_button())
         wait_for_page_to_load(SeleniumBase.driver)
+        time.sleep(5)
         
     
     def navigate_to_linkedin(self):
         BrowserUtilities.maximize_window()
         SeleniumBase.driver.get("https://www.linkedin.com")
-        time.sleep(5)
         WaitUtilities.wait_for_element_to_be_clickable(self.linkControls.sign_in, 60)
         SeleniumUtilities.click_element(self.linkControls.get_sign_in())
         SeleniumUtilities.send_text(self.linkControls.get_username(),"parthvenkatesh@zohomail.in")
         SeleniumUtilities.send_text(self.linkControls.get_password(),"Par@98124")
         SeleniumUtilities.click_element(self.linkControls.get_login_button())
+        time.sleep(5)
 
 
     

@@ -1,2 +1,5 @@
 *.xml
 *.pyc
+venv
+*.ini
+Shell_FE_Behave_Tests/Reports/
