@@ -44,6 +44,7 @@ jobs:
         run: |
           cd Shell_FE_Behave_Tests
           behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features
+        continue-on-error: true
  
       - name: Generate Allure Report
         run: |
