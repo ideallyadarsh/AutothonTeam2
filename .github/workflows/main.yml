@@ -1,12 +1,13 @@
 on:
-  workflow_dispatch
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
- 
+
+on: workflow_dispatch
+
 jobs:
   build:
     name: Setup, Run Tests, and Generate Reports
