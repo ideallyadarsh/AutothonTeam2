@@ -43,7 +43,7 @@ jobs:
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
-          behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Auto.feature
+          behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features
  
       - name: Generate Allure Report
         run: |
