@@ -46,7 +46,8 @@ def before_feature(context, feature):
         # can launch lambda device or local android device
         my_param = "True" == context.config.userdata.get('remote', False)
         AppiumBase.launch_application("android",my_param)
-        AppiumBase.driver.activate_app("com.instagram.android")
+        config = AppiumBase.read_config()
+        AppiumBase.driver.activate_app(config['Android']['appPackage'])
 
 def before_scenario(context, scenario):
     if "web" in context.feature.tags:
@@ -55,7 +56,6 @@ def before_scenario(context, scenario):
         AppiumBase.driver.start_recording_screen(videoQuality='low', timeLimit=1800, videoFps=5, videoType='mpeg4')
 
 def after_step(context, step):
-    # if step.status == "failed":
     screenshot_name = str(context.scenario.name).replace(" ", "_") + '_' +str(step.name).replace(" ", "_")
     if "web" in context.feature.tags:
         # BrowserUtilities.take_screenshot(screenshot_name)
@@ -67,7 +67,8 @@ def after_step(context, step):
                     attachment_type=AttachmentType.PNG)
 
 def after_scenario(context, scenario):
-    if "mobile" in context.feature.tags:
+    my_param = "True" == context.config.userdata.get('remote', False)
+    if "mobile" in context.feature.tags and my_param == False:
         # time.sleep(20)
         video_rawData = AppiumBase.driver.stop_recording_screen()
         # time.sleep(25)
@@ -79,7 +80,7 @@ def after_scenario(context, scenario):
                                  device_name + " " + video_name + ".mp4")
         with open(file_path, "wb+") as vd:
             vd.write(base64.b64decode(video_rawData))
-    else:
+    elif "web" in context.feature.tags:
         SeleniumBase.close_browser_tabs()
         
     config = SeleniumBase.read_config()
@@ -150,7 +151,9 @@ def after_feature(context, feature):
         # SeleniumBase.close_browser_tabs()
         pass
     else:
-        AppiumBase.driver.terminate_app("com.instagram.android")
+        
+        config = AppiumBase.read_config()
+        AppiumBase.driver.terminate_app(config['Android']['appPackage'])
         AppiumBase.driver.quit()
         AppiumBase.stop_appium_server()
         
