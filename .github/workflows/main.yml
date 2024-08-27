@@ -43,12 +43,12 @@ jobs:
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
-           behave --define remote=True --no-capture -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features
+          behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Auto.feature
  
       - name: Generate Allure Report
         run: |
+          cd Shell_FE_Behave_Tests
           allure generate TestResults/AllureJson --clean -o TestResults/Reports
-          working-directory: ${{ github.workspace }}/TestAutoThon/Shell_FE_Behave_Tests
  
       - name: Upload Allure Report as an Artifact
         if: success() || failure()
