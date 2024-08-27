@@ -55,12 +55,16 @@ def before_scenario(context, scenario):
         AppiumBase.driver.start_recording_screen(videoQuality='low', timeLimit=1800, videoFps=5, videoType='mpeg4')
 
 def after_step(context, step):
-    if step.status == "failed":
-        screenshot_name = str(context.scenario.name).replace(" ", "_") + '_' +str(step.name).replace(" ", "_")
-        if "web" in context.feature.tags:
-            BrowserUtilities.take_screenshot(screenshot_name)
-        else:
-            AndroidUtilities.take_screenshot(screenshot_name)
+    # if step.status == "failed":
+    screenshot_name = str(context.scenario.name).replace(" ", "_") + '_' +str(step.name).replace(" ", "_")
+    if "web" in context.feature.tags:
+        # BrowserUtilities.take_screenshot(screenshot_name)
+        allure.attach(SeleniumBase.driver.get_screenshot_as_png(), name= screenshot_name,
+                    attachment_type=AttachmentType.PNG)
+    else:
+        # AndroidUtilities.take_screenshot(screenshot_name)
+        allure.attach(AppiumBase.driver.get_screenshot_as_png(), name= screenshot_name,
+                    attachment_type=AttachmentType.PNG)
 
 def after_scenario(context, scenario):
     if "mobile" in context.feature.tags:
