@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
-          path: Shell_FE_Behave_Tests/TestResults
+          path: Shell_FE_Behave_Tests/TestResults/Reports
 
 
  

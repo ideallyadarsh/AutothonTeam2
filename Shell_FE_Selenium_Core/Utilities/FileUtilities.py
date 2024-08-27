@@ -311,7 +311,7 @@ class FileUtilities:
             except Exception as err:
                 FileUtilities.log.error("Unable to write into json file. Exception: {0}.".format(err))
         else:
-            FileUtilities.log.info("Either file is missing or is not readable, creating file...")
+            # FileUtilities.log.info("Either file is missing or is not readable, creating file...")
             with io.open(os.path.join(FileUtilities.test_data, file_name), 'w') as new_file:
                 new_file.write(json.dumps(dict_name))
             with open(FileUtilities.test_data + file_name, 'r') as new_json_file:
