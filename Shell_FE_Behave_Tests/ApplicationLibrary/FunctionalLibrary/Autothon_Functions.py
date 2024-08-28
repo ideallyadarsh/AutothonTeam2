@@ -37,11 +37,9 @@ class AutothonFunctions:
         for link in news_link:
             BrowserUtilities.navigate_to_url(link)
             WaitUtilities.wait_for_element_to_be_visible(self.autoControls.indian_express_headline, 120)
-            SeleniumUtilities.scroll_to_element_by_actions(self.autoControls.get_indian_express_headline())
             headline = SeleniumUtilities.get_text(self.autoControls.get_indian_express_headline())        
             date = SeleniumUtilities.get_text(self.autoControls.get_indian_express_posted_date())
             self.article_details.append([link,headline,date])
-            BrowserUtilities.take_screenshot(headline)
         SeleniumUtilities.log.info(self.article_details)
     
     def post_news_articles_details(self, article_headline, aricle_url, article_publish_date):
