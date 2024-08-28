@@ -65,8 +65,8 @@ class AutothonFunctions:
 
         if response.get("name") == article_headline and response.get("description") == aricle_url and int(response.get("price")) == int(article_publish_date.split(" ")[0].replace("-", "")) and response.get("item_type") == API.TEAM_NAME:
             SeleniumUtilities.log.info(f"Successful validation for News Article with ID: {id}")
-        
-        SeleniumUtilities.log.error(f"Validation failed for News Article with ID: {id} \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")
+        else:
+            SeleniumUtilities.log.error(f"Validation failed for News Article with ID: {id} \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")
     
     def post_and_validate_article_details(self):
         for i in range(len(self.article_details)):
@@ -76,9 +76,8 @@ class AutothonFunctions:
             if RequestsBase.response_status_code(RequestsBase.response) != 200:
                 SeleniumUtilities.log.error(f"News Article was not posted \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")   
             
-            SeleniumUtilities.log.info(f"News Article posted successfully...")
-
             id = RequestsBase.response_body_as_dictionary(RequestsBase.response).get("id")
+            SeleniumUtilities.log.info(f"News Article posted successfully with id {id}...")
             self.validate_news_articles_details(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2],id)
 
  
