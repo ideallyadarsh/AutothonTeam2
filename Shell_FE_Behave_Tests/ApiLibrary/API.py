@@ -6,11 +6,11 @@ class API:
     TEAM_NAME = "Shell India - 1"
 
     @staticmethod
-    def post(headline: str, news_link: str, pub_date_time: str):
+    def post(name: str, description: str, price: str):
         data = {
-        "name": f"{headline}",
-        "description": f"News Link: {news_link}",
-        "price": int(pub_date_time.split(" ")[0].replace("-", "")),
+        "name": f"{name}",
+        "description": f"{description}",
+        "price": int(price) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", "")),
         "item_type": API.TEAM_NAME,
         }
         headers = {     
@@ -33,16 +33,17 @@ class API:
 
 
     @staticmethod
-    def validate(headline: str, news_link: str, pub_date_time: str, id: int):
+    def validate(name: str, description: str, price: str, id: int):
+        price = int(price) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", ""))
         response = API.get(id)
-        print(headline)
-        print(news_link)
-        print(pub_date_time)
-        print(response)
+        # print(headline)
+        # print(news_link)
+        # print(pub_date_time)
+        # print(response)
         if response.status_code == 200:
             response = response.json()
             print(response)
-            if response.get("name") == headline and response.get("description") == f"News Link: {news_link}" and int(response.get("price")) == int(pub_date_time.split(" ")[0].replace("-", "")) and response.get("item_type") == API.TEAM_NAME:
+            if response.get("name") == name and response.get("description") == f"{description}" and int(response.get("price")) == price and response.get("item_type") == API.TEAM_NAME:
                 return True
         return False
 
