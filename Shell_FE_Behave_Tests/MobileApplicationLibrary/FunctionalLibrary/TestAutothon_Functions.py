@@ -45,10 +45,10 @@ class TestAutothon_Functions:
         data = {
         "name": product_name,
         "description": product_description,
-        "price": int(product_price.split(" ")[0].replace("-", "")),
+        "price": int(float(product_price)),
         "item_type": team_name,
         }
-        AndroidUtilities.log.info(f"Product Details: \Name: {product_name} \nDescription: {product_description} \nPrice: {product_price} \nTeam Name: {team_name}")
+        AndroidUtilities.log.info(f"Product Details: \nName: {product_name} \nDescription: {product_description} \nPrice: {product_price} \nTeam Name: {team_name}")
         RequestsBase.post_request(url = self.base_url, headers= headers, body_json= data)
 
     def validate_product_details(self, product_name, product_description, product_price, team_name, id):
