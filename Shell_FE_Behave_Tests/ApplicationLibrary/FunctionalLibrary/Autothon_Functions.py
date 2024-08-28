@@ -1,14 +1,12 @@
 import time
 from Shell_FE_Behave_Tests.ApplicationLibrary.ControlLibrary.Autothon_Controls import AutothonControls
-from Shell_FE_Behave_Tests.ApplicationLibrary.ControlLibrary.Linkedin_controls import LinkedinControls
 from Shell_FE_Selenium_Core.SeleniumBase import SeleniumBase
 from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
 from Shell_FE_Selenium_Core.Utilities.SeleniumUtilities import SeleniumUtilities
 from Shell_FE_Selenium_Core.Utilities.WaitUtilities import WaitUtilities
 from Shell_FE_Behave_Tests.ApiLibrary.API import API
 from Shell_FE_Requests_Core.RequestsBase import RequestsBase
-from requests_oauthlib import OAuth1Session
-import random,requests,json
+from Shell_FE_Requests_Core.Utilities.AssertionUtilities import AssertionUtilities
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 
@@ -18,6 +16,7 @@ class AutothonFunctions:
     def __init__(self):
         self.autoControls = AutothonControls(SeleniumBase.driver)
         self.article_details = []
+        self.base_url = "http://ec2-54-254-162-245.ap-southeast-1.compute.amazonaws.com:9000/items/"
 
     def navigate_to_indian_express(self):
         BrowserUtilities.maximize_window()
@@ -43,18 +42,42 @@ class AutothonFunctions:
 
         SeleniumUtilities.log.info(self.article_details)
     
+    def post_news_articles_details(self, article_headline, aricle_url, article_publish_date):
+        headers = {     
+            'Content-Type': 'application/json'  
+        }
+        data = {
+        "name": article_headline,
+        "description": aricle_url,
+        "price": int(article_publish_date.split(" ")[0].replace("-", "")),
+        "item_type": API.TEAM_NAME,
+        }
+        SeleniumUtilities.log.info(f"News article details: \nHeadline: {article_headline}, \nURL: {aricle_url}, \nPublish Date: {article_publish_date}")
+        RequestsBase.post_request(url = self.base_url, headers= headers, body_json= data)
+
+    def validate_news_articles_details(self, article_headline, aricle_url, article_publish_date, id):
+        RequestsBase.get_request(url = self.base_url + str(id))
+        if RequestsBase.response_status_code(RequestsBase.response) != 200:
+            
+            SeleniumUtilities.log.error(f"Retrieval of News Article with ID: {id} failed \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")
+        SeleniumUtilities.log.info(f"Successful Retrieval of News Article with ID: {id} \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")
+        response = RequestsBase.response_body_as_dictionary(RequestsBase.response)
+
+        if response.get("name") == article_headline and response.get("description") == aricle_url and int(response.get("price")) == int(article_publish_date.split(" ")[0].replace("-", "")) and response.get("item_type") == API.TEAM_NAME:
+            SeleniumUtilities.log.info(f"Successful validation for News Article with ID: {id}")
+        else:
+            SeleniumUtilities.log.error(f"Validation failed for News Article with ID: {id} \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")
+    
     def post_and_validate_article_details(self):
         for i in range(len(self.article_details)):
             SeleniumUtilities.log.info('-'*60)
-            response = API.post(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2])
-            if response:
-                SeleniumUtilities.log.info(f"News Article {i+1} posted successfully")
-                validation = API.validate(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2],response)
-                if validation:
-                    SeleniumUtilities.log.info(f"News Article {i+1} validated successfully. Id :{validation}")
-                else:
-                    self.log_file.error(f"News Article {i+1} not validated successfully. Id :{validation}")
-                    raise AssertionError(f"News Article {i+1} not validated successfully. Id :{validation}")
-            else:
-                self.log_file.error(f"News Article with ID: {id} not posted successfully")
+            self.post_news_articles_details(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2])
+            # response = API.post(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2])
+            if RequestsBase.response_status_code(RequestsBase.response) != 200:
+                SeleniumUtilities.log.error(f"News Article was not posted \nResponse received: {RequestsBase.response_body_as_string(RequestsBase.response)}")   
+            
+            id = RequestsBase.response_body_as_dictionary(RequestsBase.response).get("id")
+            SeleniumUtilities.log.info(f"News Article posted successfully with id {id}...")
+            self.validate_news_articles_details(self.article_details[i][0],self.article_details[i][1],self.article_details[i][2],id)
+
  
