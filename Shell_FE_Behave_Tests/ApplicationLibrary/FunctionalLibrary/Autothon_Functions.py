@@ -21,25 +21,28 @@ class AutothonFunctions:
     def navigate_to_indian_express(self):
         BrowserUtilities.maximize_window()
         SeleniumBase.driver.get("https://indianexpress.com/")
-        # WaitUtilities.wait_for_element_to_be_visible(self.autoControls.indian_express_allow_button, 120)
-        # SeleniumUtilities.click_element(self.autoControls.get_indian_express_allow_button())
        
     def click_on_politics(self):
+        WaitUtilities.wait_for_element_to_be_visible(self.autoControls.indian_express_politics, 120)
+        BrowserUtilities.take_screenshot('Indian Express Home Page')
+        SeleniumUtilities.is_element_displayed(self.autoControls.get_indian_express_logo())
         SeleniumUtilities.click_element(self.autoControls.get_indian_express_politics())
         BrowserUtilities.switch_to_child_window()
        
     def click_on_carousel(self):
         news_link = []
-        news_link.append(self.autoControls.get_carousel_1().get_attribute('href'))
-        news_link.append(self.autoControls.get_carousel_2().get_attribute('href'))
-        news_link.append(self.autoControls.get_carousel_3().get_attribute('href'))
+        for i in range(1, 4):
+            news_link.append(SeleniumUtilities.get_attribute(self.autoControls.get_carousel("carousel",str(i)), 'href'))
+            
         for link in news_link:
             BrowserUtilities.navigate_to_url(link)
-            time.sleep(2)
+            # time.sleep(5)
+            WaitUtilities.wait_for_element_to_be_visible(self.autoControls.indian_express_headline, 120)
+            SeleniumUtilities.scroll_to_element_by_actions(self.autoControls.get_indian_express_headline())
             headline = SeleniumUtilities.get_text(self.autoControls.get_indian_express_headline())        
             date = SeleniumUtilities.get_text(self.autoControls.get_indian_express_posted_date())
             self.article_details.append([link,headline,date])
-
+            BrowserUtilities.take_screenshot(headline)
         SeleniumUtilities.log.info(self.article_details)
     
     def post_news_articles_details(self, article_headline, aricle_url, article_publish_date, team_name):
