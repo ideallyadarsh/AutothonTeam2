@@ -47,7 +47,7 @@ def before_feature(context, feature):
         my_param = "True" == context.config.userdata.get('remote', False)
         AppiumBase.launch_application("android",my_param)
         config = AppiumBase.read_config()
-        AppiumBase.driver.activate_app(config['Android']['appPackage'])
+        # AppiumBase.driver.activate_app(config['Android']['appPackage'])
 
 def before_scenario(context, scenario):
     if "web" in context.feature.tags:
@@ -81,7 +81,8 @@ def after_scenario(context, scenario):
         with open(file_path, "wb+") as vd:
             vd.write(base64.b64decode(video_rawData))
     elif "web" in context.feature.tags:
-        SeleniumBase.close_browser_tabs()
+        # SeleniumBase.close_browser_tabs()
+        SeleniumBase.driver.quit()
         
     config = SeleniumBase.read_config()
     azure_value = config.getboolean('Azure_Test_plan', 'update_result') 

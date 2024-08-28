@@ -11,16 +11,16 @@ jobs:
   build:
     name: Setup, Run Tests, and Generate Reports
     runs-on: windows-latest
- 
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
- 
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.2'  # Specify your Python version
- 
+          python-version: "3.11.2" # Specify your Python version
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -28,36 +28,32 @@ jobs:
           # Example requirements.txt might include:
           # behave
           # allure-behave
- 
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify your Node.js version
- 
+          node-version: "18" # Specify your Node.js version
+
       - name: Install Allure CLI
         run: npm install -g allure-commandline --save-dev
 
-
       - name: Install  npm Appium Package
         run: npm install -g appium
-                
+
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
           behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features
         continue-on-error: true
- 
+
       - name: Generate Allure Report
         run: |
           cd ${{ github.workspace }}/Shell_FE_Behave_Tests
           allure generate TestResults/AllureJson --clean -o TestResults/Reports
- 
+
       - name: Upload Allure Report as an Artifact
         if: success() || failure()
         uses: actions/upload-artifact@v3
         with:
           name: allure-report
           path: Shell_FE_Behave_Tests/TestResults/Reports
-
-
- 

@@ -7,29 +7,31 @@ class AutothonControls:
     def __init__(self, driver):
         self.driver = driver
 
-    sign_in = (By.XPATH,"//span[text()='Sign in']")
-    username = (By.XPATH,"//input[@autocomplete='username']")
-    password = (By.XPATH,"//input[@autocomplete='current-password']")
-    enter_username = (By.XPATH,"//input[@autocomplete='on']")
-    remove_tnc = (By.XPATH,'//div[@data-testid="BottomBar"]//button')
-    next = (By.XPATH,"//span[text()='Next']")
-    login_button = (By.XPATH,"//span[text()='Log in']")
-    post = (By.XPATH,"//h1[text()='Conversation']/parent::section//article/div")
-
-    def get_enter_username(self):
-        return self.driver.find_element(*AutothonControls.enter_username)
-    def get_remove_tnc(self):
-        return self.driver.find_element(*AutothonControls.remove_tnc)    
-    def get_sign_in(self):
-        return self.driver.find_element(*AutothonControls.sign_in)
-    def get_username(self):
-        return self.driver.find_element(*AutothonControls.username)
-    def get_password(self):
-        return self.driver.find_element(*AutothonControls.password)
-    def get_next(self):
-        return self.driver.find_element(*AutothonControls.next)
-    def get_login_button(self):
-        return self.driver.find_element(*AutothonControls.login_button)
-    def get_post(self):
-        return self.driver.find_element(*AutothonControls.post)
-    
+    indian_express_allow_button = (By.XPATH, "(//button[contains(text() , 'Allow')])[1]")
+    indian_express_politics = (By.XPATH, "//a[@data-ie-event-label='Politics']")
+    indian_express_corousel = (By.XPATH, "//button[@id='slick-slide-control01']")
+    indian_express_headline = (By.XPATH, "//h1[@itemprop = 'headline']")
+    indian_express_posted_date = (By.XPATH, "//div[@class = 'ie-first-publish']/span")
+    indian_express_logo = (By.XPATH, "//img[@alt='The Indian Express logo']")
+    carousel_1 = (By.XPATH, "(//div[@class='slickslider-box']//a)[1]")
+    carousel_2 = (By.XPATH, "(//div[@class='slickslider-box']//a)[2]")
+    carousel_3 = (By.XPATH, "(//div[@class='slickslider-box']//a)[3]")
+   
+    def get_carousel_1(self):
+        return self.driver.find_element(*AutothonControls.carousel_1)
+    def get_carousel_2(self):
+        return self.driver.find_element(*AutothonControls.carousel_2)
+    def get_carousel_3(self):
+        return self.driver.find_element(*AutothonControls.carousel_3)
+ 
+   
+    def get_indian_express_allow_button(self):
+        return self.driver.find_element(*AutothonControls.indian_express_allow_button)
+    def get_indian_express_politics(self):
+        return self.driver.find_element(*AutothonControls.indian_express_politics)    
+    def get_indian_express_corousel(self):
+        return self.driver.find_element(*AutothonControls.indian_express_corousel)
+    def get_indian_express_headline(self):
+        return self.driver.find_element(*AutothonControls.indian_express_headline)
+    def get_indian_express_posted_date(self):
+        return self.driver.find_element(*AutothonControls.indian_express_posted_date)

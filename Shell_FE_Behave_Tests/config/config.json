@@ -5,12 +5,11 @@
     "LT:Options": {
       "w3c": true,
       "isRealMobile": true,
-      "app": "stock",
+      "app": "lt://APP10160311981724818406660303",
       "build": "LT-Android-Test1Demo(12/02/24)",
       "project": "Demo Project",
       "platformName": "Android",
       "idleTimeout": 580,
-      "privateCloud": true,
       "autoGrantPermissions": true,
       "liveVideo": true,
       "fullContextList": true,
