@@ -10,7 +10,7 @@ class API:
         data = {
         "name": f"{name}",
         "description": f"{description}",
-        "price": int(price) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", "")),
+        "price": int(float(price)) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", "")),
         "item_type": API.TEAM_NAME,
         }
         headers = {     
@@ -34,11 +34,11 @@ class API:
 
     @staticmethod
     def validate(name: str, description: str, price: str, id: int):
-        price = int(price) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", ""))
+        price = int(float(price)) if price.find("-") == -1 else int(price.split(" ")[0].replace("-", ""))
         response = API.get(id)
         # print(headline)
         # print(news_link)
-        # print(pub_date_time)
+        # print(price)
         # print(response)
         if response.status_code == 200:
             response = response.json()
@@ -48,9 +48,9 @@ class API:
         return False
 
 def main():
-    id = API.post("Test Headline", "https://www.google.com", "2021-09-30 00:00:00")
+    id = API.post("Test Headline", "https://www.google.com", "1234.0")
     print(id)
-    print(API.validate("Test Headline", "https://www.google.com", "2021-09-30 00:00:00", id))
+    print(API.validate("Test Headline", "https://www.google.com", "1234.0", id))
 
 
 if __name__ == "__main__":
