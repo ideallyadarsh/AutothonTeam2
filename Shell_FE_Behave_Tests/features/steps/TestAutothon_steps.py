@@ -2,6 +2,7 @@ from behave import *
 from Shell_FE_Behave_Tests.MobileApplicationLibrary.FunctionalLibrary.TestAutothon_Functions import TestAutothon_Functions
 from Shell_FE_Behave_Tests.ApplicationLibrary.FunctionalLibrary.Autothon_Functions import AutothonFunctions
 
+# Mobile Application Steps
 @Given('I launch the step in application')
 def step_def(context):
     context.app_functions = TestAutothon_Functions()
