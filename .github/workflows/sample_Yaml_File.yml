@@ -8,10 +8,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python 3.11.2
+      - name: Setup Python 3.10.11
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11.2
+          python-version: 3.10.11
+          # python-version: 3.11.2
           cache: 'pip'
       
       - name: Install dependencies
@@ -94,7 +95,7 @@ jobs:
     name: Allure Report
     runs-on: ubuntu-latest
     if: always()
-    needs: [ test ]
+    needs: [ Test ]
     steps:
       - name: Get Allure history
         uses: actions/checkout@v2
