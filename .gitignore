@@ -4,3 +4,4 @@ venv
 *.ini
 Shell_FE_Behave_Tests/TestResults
 Shell_FE_Behave_Tests/TestData/AzureCredentials/AzureCredentials.json
+Shell_FE_Behave_Tests/TestData/TwitterCredentials/TwitterCredentials.json

@@ -28,11 +28,13 @@ class TemplateFunctions:
         SeleniumUtilities.click_element(self.autoControls.get_signin_button())
        
     def enter_username_and_click_next(self):
-        SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), "mister_gupta")
+        credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+        SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), credentials["username"])
         SeleniumUtilities.click_element(self.autoControls.get_next_button())
     
     def enter_password_and_click_log_in(self):
-        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), "kcabinARYAN")
+        credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), credentials["password"])
         SeleniumUtilities.click_element(self.autoControls.get_login_button())
         WaitUtilities.wait_for_url_to_match_value("https://x.com/home", 60)
 
@@ -48,7 +50,7 @@ class TemplateFunctions:
         SeleniumUtilities.click_element(self.autoControls.get_search_button())
         WaitUtilities.wait_for_element_to_be_visible(self.autoControls.search_input_field, 60)
         SeleniumUtilities.send_text(self.autoControls.get_search_input_field(), "sign_revlis15sep")
-        SeleniumUtilities.click_element(self.autoControls.get_search_result_button())
+        SeleniumUtilities.double_click(self.autoControls.get_search_result_button())
 
     def take_screenshot_of_posts_and_save_locally(self):
         WaitUtilities.wait_for_element_to_be_visible(self.autoControls.tweet, 60)
