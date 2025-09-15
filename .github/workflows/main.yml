@@ -46,6 +46,13 @@ jobs:
           cd Shell_FE_Behave_Tests
           behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Template_Web.feature
         continue-on-error: true
+      
+      - name: Upload Test Results as an Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: Shell_FE_Behave_Tests/TestResults
 
       - name: Generate Allure Report
         run: |
