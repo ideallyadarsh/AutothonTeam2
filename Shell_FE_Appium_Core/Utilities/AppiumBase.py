@@ -1,4 +1,4 @@
-simport json
+import json
 import os
 from appium.webdriver.appium_service import AppiumService
 from configparser import ConfigParser
