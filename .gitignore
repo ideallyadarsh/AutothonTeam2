@@ -1,7 +1,6 @@
 *.xml
 *.pyc
 venv
-*.ini
 Shell_FE_Behave_Tests/TestResults/Logs/*
 Shell_FE_Behave_Tests/TestResults/Screenshots/*
 Shell_FE_Behave_Tests/TestResults/Reports/*
