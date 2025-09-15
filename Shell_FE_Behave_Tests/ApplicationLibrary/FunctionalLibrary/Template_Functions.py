@@ -32,7 +32,7 @@ class TemplateFunctions:
         SeleniumUtilities.click_element(self.autoControls.get_next_button())
     
     def enter_password_and_click_log_in(self):
-        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), "kcabinARYAN")
+        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), "xxxxx")
         SeleniumUtilities.click_element(self.autoControls.get_login_button())
         WaitUtilities.wait_for_url_to_match_value("https://x.com/home", 60)
 
