@@ -1,6 +1,6 @@
 import base64
 import json
-import requests
+import requests, os
 from Shell_FE_Selenium_Core.Utilities.FileUtilities import FileUtilities
 
 
@@ -11,7 +11,7 @@ class TestResultUpdate:
     test_plan_id = input_file['Test_Plan_Id']
     test_suite_ids = input_file['Test_Suite_Id']
     api_version = input_file['api_version']
-    pat_token = base64.b64encode(bytes(f":{input_file['PAT_Token']}", "utf-8")).decode("ascii")
+    pat_token = base64.b64encode(bytes(f":{os.environ.get('AZURE_PAT_TOKEN')}", "utf-8")).decode("ascii")
 
     # @staticmethod
     # def get_test_suit_ids():

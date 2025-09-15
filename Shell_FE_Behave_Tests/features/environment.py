@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.dirname(os.getcwd()))
 from Shell_FE_Selenium_Core.SeleniumBase import SeleniumBase
 from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
 ## COMMENTING FOR PIPELINE SUCCESS ##
-# from Shell_FE_Selenium_Core.Azure_Test_Result_update import TestResultUpdate
+from Shell_FE_Selenium_Core.Azure_Test_Result_update import TestResultUpdate
 from Shell_FE_Selenium_Core.Utilities.FileUtilities import FileUtilities
 
 current_working_directory = os.path.dirname(os.getcwd())
@@ -178,8 +178,8 @@ def after_all(context):
     time.sleep(10)
 
     ## COMMENTING FOR PIPELINE SUCCESS
-    # if azure_value:
-    #     # file_name - name of the file, that you have declared in the behave.ini
-    #     TestResultUpdate.test_plan_result_update(file_name)
-    #     FileUtilities.copy_file_to_directory(f"{file_name}", f"AzureTestResultHistory/{file_name}")
-    #     FileUtilities.delete_file(f"{file_name}")
+    if azure_value:
+        # file_name - name of the file, that you have declared in the behave.ini
+        TestResultUpdate.test_plan_result_update(file_name)
+        FileUtilities.copy_file_to_directory(f"{file_name}", f"AzureTestResultHistory/{file_name}")
+        FileUtilities.delete_file(f"{file_name}")
