@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - Aryan
+      - main
   pull_request:
     branches:
       - main
