@@ -1,11 +1,11 @@
 {
-  "username": "Parth.Venkatesh",
-  "accessKey": "hJXk1GbwJHtLtalpaDtkkiWCT7vYLLJSOscxSEMTMNZ8FlPtvX",
+  "username": "aryanjigupta",
+  "accessKey": "LT_eYMQWWMoo6adgaodGkq1Ta80gwiRA3UWWUnqBPl5TV0pqHj",
   "appcapabilities_android": {
     "LT:Options": {
       "w3c": true,
       "isRealMobile": true,
-      "app": "lt://APP10160311981724818406660303",
+      "app": "lt://APP10160261801757927114760984",
       "build": "LT-Android-Test1Demo(12/02/24)",
       "project": "Demo Project",
       "platformName": "Android",
