@@ -6,6 +6,7 @@ from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
 from selenium.webdriver.common.by import By
 from Shell_FE_Selenium_Core.Utilities.SeleniumUtilities import SeleniumUtilities
 
+# run pipeline
 @given(u'I Navigate to X')
 def step_impl(context):
     context.functions = TemplateFunctions()
