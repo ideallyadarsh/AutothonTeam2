@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-      - main
+      - Aryan
   pull_request:
     branches:
-      - main
+      - Aryan
   workflow_dispatch:
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11.2" # Specify your Python version
+          python-version: "3.10.11" # Specify your Python version
 
       - name: Install dependencies
         run: |
@@ -29,16 +29,16 @@ jobs:
           # behave
           # allure-behave
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" # Specify your Node.js version
+      # - name: Install Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "18" # Specify your Node.js version
 
-      - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
+      # - name: Install Allure CLI
+      #   run: npm install -g allure-commandline --save-dev
 
-      - name: Install  npm Appium Package
-        run: npm install -g appium
+      # - name: Install  npm Appium Package
+      #   run: npm install -g appium
 
       - name: Run behave tests
         run: |
