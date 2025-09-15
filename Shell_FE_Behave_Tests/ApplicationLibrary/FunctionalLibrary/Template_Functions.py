@@ -2,6 +2,7 @@ import time, os
 from Shell_FE_Behave_Tests.ApplicationLibrary.ControlLibrary.Template_Controls import TemplateControls
 from Shell_FE_Selenium_Core.SeleniumBase import SeleniumBase
 from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
+from Shell_FE_Selenium_Core.Utilities.LoggingUtilities import LoggingUtilities
 from Shell_FE_Selenium_Core.Utilities.SeleniumUtilities import SeleniumUtilities
 from Shell_FE_Selenium_Core.Utilities.WaitUtilities import WaitUtilities
 from Shell_FE_Requests_Core.RequestsBase import RequestsBase
@@ -28,19 +29,25 @@ class TemplateFunctions:
         SeleniumUtilities.click_element(self.autoControls.get_signin_button())
        
     def enter_username_and_click_next(self):
-        try:
-            credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
-            SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), credentials["username"])
-        except:
-            SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), os.environ.get("TWITTER_USERNAME"))
+        # try:
+        #     credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+        #     SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), credentials["username"])
+        # except:
+        LoggingUtilities.log.info("Fetching username from environment variable")
+        LoggingUtilities.log.info(f"Username fetched from environment variable is: {os.environ.get('TWITTER_USERNAME')}")
+        SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), os.environ.get("TWITTER_USERNAME"))
+        time.sleep(7)
         SeleniumUtilities.click_element(self.autoControls.get_next_button())
     
     def enter_password_and_click_log_in(self):
-        try:
-            credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
-            SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), credentials["password"])
-        except:
-            SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), os.environ.get("TWITTER_PASSWORD"))
+        # try:
+        #     credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+        #     SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), credentials["password"])
+        # except:
+        LoggingUtilities.log.info("Fetching password from environment variable")
+        LoggingUtilities.log.info(f"Password fetched from environment variable is: {os.environ.get('TWITTER_PASSWORD')}")
+        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), os.environ.get("TWITTER_PASSWORD"))
+        time.sleep(7)
         SeleniumUtilities.click_element(self.autoControls.get_login_button())
         WaitUtilities.wait_for_url_to_match_value("https://x.com/home", 60)
 
