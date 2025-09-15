@@ -12,8 +12,6 @@ jobs:
     name: Setup, Run Tests, and Generate Reports
     runs-on: windows-latest
     env:
-      TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
-      TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
       AZURE_PAT_TOKEN: ${{ secrets.AZURE_PAT_TOKEN }}
     steps:
       - name: Checkout code
