@@ -94,7 +94,7 @@ jobs:
     name: Allure Report
     runs-on: ubuntu-latest
     if: always()
-    needs: [ test ]
+    needs: [ Test ]
     steps:
       - name: Get Allure history
         uses: actions/checkout@v2
