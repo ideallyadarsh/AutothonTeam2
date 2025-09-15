@@ -41,10 +41,6 @@ jobs:
       #   run: npm install -g appium
 
       - name: Run behave tests
-        env:
-          TWITTER_USERNAME: ${{ secrets.TWITTER_USERNAME }}
-          TWITTER_PASSWORD: ${{ secrets.TWITTER_PASSWORD }}
-          AZURE_PAT_TOKEN: ${{ secrets.AZURE_PAT_TOKEN }}
         run: |
           cd Shell_FE_Behave_Tests
           behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Template_Web.feature
