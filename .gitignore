@@ -7,4 +7,3 @@ Shell_FE_Behave_Tests/TestResults/Reports/*
 Shell_FE_Behave_Tests/TestResults/AllureJson/*
 Shell_FE_Behave_Tests/TestResults/Junitreports/*
 Shell_FE_Behave_Tests/TestData/AzureCredentials/AzureCredentials.json
-Shell_FE_Behave_Tests/TestData/TwitterCredentials/TwitterCredentials.json
