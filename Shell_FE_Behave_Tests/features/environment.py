@@ -31,7 +31,7 @@ current_working_directory = os.path.dirname(os.getcwd())
 #         SeleniumBase.initialize_values()
 
 def before_all(context):
-    AppiumBase.start_appium_server()
+    # AppiumBase.start_appium_server()
     SeleniumBase.initialize_values()
 
 def before_feature(context, feature):
@@ -58,11 +58,11 @@ def before_scenario(context, scenario):
 def after_step(context, step):
     screenshot_name = str(context.scenario.name).replace(" ", "_") + '_' +str(step.name).replace(" ", "_")
     if "web" in context.feature.tags:
-        # BrowserUtilities.take_screenshot(screenshot_name)
+        BrowserUtilities.take_screenshot(screenshot_name)
         allure.attach(SeleniumBase.driver.get_screenshot_as_png(), name= screenshot_name,
                     attachment_type=AttachmentType.PNG)
     else:
-        # AndroidUtilities.take_screenshot(screenshot_name)
+        AndroidUtilities.take_screenshot(screenshot_name)
         allure.attach(AppiumBase.driver.get_screenshot_as_png(), name= screenshot_name,
                     attachment_type=AttachmentType.PNG)
 
@@ -180,5 +180,3 @@ def after_all(context):
         TestResultUpdate.test_plan_result_update(file_name)
         FileUtilities.copy_file_to_directory(f"{file_name}", f"AzureTestResultHistory/{file_name}")
         FileUtilities.delete_file(f"{file_name}")
-    
-
