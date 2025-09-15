@@ -16,7 +16,7 @@ import time
 from configparser import ConfigParser
 import allure
 from allure_commons.types import AttachmentType
-from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
+# from behave.contrib.scenario_autoretry import patch_scenario_with_autoretry
 sys.path.insert(0, os.path.dirname(os.getcwd()))
 from Shell_FE_Selenium_Core.SeleniumBase import SeleniumBase
 from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
