@@ -1,27 +1,58 @@
 {
-  "username": "aryanjigupta",
-  "accessKey": "LT_eYMQWWMoo6adgaodGkq1Ta80gwiRA3UWWUnqBPl5TV0pqHj",
+  "username": "chethanbr",
+  "accessKey": "LT_O9kNtNYsxb6ulmB554WwxoISKjwRkbkI8HKvVfNjxrxsRsC",
+  "capabilities": {
+    "LT:Options": {
+      "visual": true,
+      "video": true,
+      "build": "LT-Selenium-Demo(12/02/2024)",
+      "project": "Selenium-POC",
+      "selenium_version": "4.11.0",
+      "w3c": true
+    }
+  },
+
   "appcapabilities_android": {
     "LT:Options": {
       "w3c": true,
       "isRealMobile": true,
-      "app": "lt://APP10160261801757927114760984",
+      "app": "lt://APP10160211661758088872633624",
       "build": "LT-Android-Test1Demo(12/02/24)",
       "project": "Demo Project",
-      "platformName": "Android",
-      "idleTimeout": 580,
-      "autoGrantPermissions": true,
-      "liveVideo": true,
-      "fullContextList": true,
-      "autoAcceptAlerts": true,
-      "forceAppLaunch": true
+      "platformName": "Android"
     }
   },
+
+  "automationplatform": {
+    "platformtype": "android"
+  },
+
+  "MobilityCloudIntegration": {
+    "remote": true,
+    "remote_environment": "LAMBDATEST"
+  },
+
+  "Android": {
+    "runAppWithPath": false,
+    "runAppWithPackage": true,
+    "noReset": true,
+    "applicationType": "native",
+    "platformName": "Android",
+    "platformVersion": "11",
+    "automationName": "UiAutomator2",
+    "deviceName": "Galaxy A22",
+    "appPackage": "com.shell.sitibv.retail",
+    "appActivity": ".MainActivity",
+    "remoteURL": "http://127.0.0.1:4723",
+    "appPath": "path",
+    "android_browser_library": "path"
+  },
+
   "androidappenvironments": [
     {
       "LT:Options": {
-        "deviceName": "Pixel 6 Pro",
-        "platformVersion": "12"
+        "deviceName": "Galaxy A22",
+        "platformVersion": "11"
       }
     },
     {
