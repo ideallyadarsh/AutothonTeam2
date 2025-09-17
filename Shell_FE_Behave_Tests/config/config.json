@@ -1,40 +1,95 @@
 {
-  "username": "Parth.Venkatesh",
-  "accessKey": "hJXk1GbwJHtLtalpaDtkkiWCT7vYLLJSOscxSEMTMNZ8FlPtvX",
-  "appcapabilities_android": {
-    "LT:Options": {
-      "w3c": true,
-      "isRealMobile": true,
-      "app": "lt://APP10160311981724818406660303",
-      "build": "LT-Android-Test1Demo(12/02/24)",
-      "project": "Demo Project",
-      "platformName": "Android",
-      "idleTimeout": 580,
-      "autoGrantPermissions": true,
-      "liveVideo": true,
-      "fullContextList": true,
-      "autoAcceptAlerts": true,
-      "forceAppLaunch": true
-    }
-  },
-  "androidappenvironments": [
+  "users": [
     {
-      "LT:Options": {
-        "deviceName": "Pixel 6 Pro",
-        "platformVersion": "12"
-      }
+      "username": "anupama.p",
+      "accessKey": "AvYaW4YB3U4pyEQV80UkqC1JkIQfdjxwFyWSac9ovvlHwpUKxt",
+      "webServer": "hub.lambdatest.com/wd/hub",
+      "appServer": "hub-cloud.lambdatest.com",
+      "capabilities": {
+        "LT:Options": {
+          "visual": true,
+          "video": true,
+          "console": true,
+          "seTelemetryLogs": "true",
+          "build": "Mobility Parallel Execution",
+          "selenium_version": "4.15.1",
+          "w3c": true,
+          "idleTimeout": "250"
+        }
+      },
+      "environments": [
+        {
+          "LT:Options": {
+            "browserName": "MicrosoftEdge",
+            "browserVersion": "119.0",
+            "platformName": "Windows 11"
+          }
+        },
+        {
+          "LT:Options": {
+            "browserName": "Chrome",
+            "browserVersion": "116.0",
+            "platformName": "Windows 11"
+          }
+        },
+        {
+          "LT:Options": {
+            "browserName": "Firefox",
+            "browserVersion": "118.0",
+            "platformName": "Windows 11"
+          }
+        }
+      ]
     },
     {
-      "LT:Options": {
-        "deviceName": "OnePlus 7",
-        "platformVersion": "9"
-      }
-    },
-    {
-      "LT:Options": {
-        "deviceName": "Galaxy A32",
-        "platformVersion": "11"
-      }
+      "username": "***********",
+      "accessKey": "***********",
+      "appcapabilities_android": {
+        "LT:Options": {
+          "w3c": true,
+          "isRealMobile": true,
+          "app": "lt://APP10160212031752729445580187",
+          "build": "Shell App Hackathon",
+          "project": "LT",
+          "platformName": "Android",
+          "idleTimeout": 20,
+          "autoGrantPermissions": true,
+          "liveVideo": true,
+          "fullContextList": true,
+          "autoAcceptAlerts": true,
+          "forceAppLaunch": true,
+          "noReset": true,
+          "ignoreHiddenApiPolicyError": true,
+          "visual": true,
+          "automationName": "UiAutomator2",
+          "chromeOptions": {
+            "args": [
+              "--disable-popup-blocking",
+              "--enable-command-line-on-non-rooted-devices"
+            ]
+          }
+        }
+      },
+      "androidappenvironments": [
+        {
+          "LT:Options": {
+            "deviceName": "Pixel 9",
+            "platformVersion": "14"
+          }
+        },
+        {
+          "LT:Options": {
+            "deviceName": "OnePlus 7",
+            "platformVersion": "9"
+          }
+        },
+        {
+          "LT:Options": {
+            "deviceName": "Galaxy A32",
+            "platformVersion": "11"
+          }
+        }
+      ]
     }
   ]
 }
