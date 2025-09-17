@@ -1,4 +1,0 @@
-2024-08-26 12:48:03,761 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
-2024-08-26 12:48:17,075 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
-2024-08-26 12:48:20,364 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
-2024-08-26 12:48:22,404 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.

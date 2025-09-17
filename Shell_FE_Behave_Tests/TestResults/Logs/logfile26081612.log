@@ -1,7 +1,0 @@
-2024-08-26 16:16:13,307 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file /AzureCredentials/AzureCredentials.json has been converted into dictionary.
-2024-08-26 16:16:48,661 :INFO :FileUtilities: append_dictionary_into_json :File updated with contents. Filename: TestResult.json.
-2024-08-26 16:16:48,661 :INFO :BrowserUtilities: after_scenario :Test case ID and status value:{165109: 'failed'}
-2024-08-26 16:16:59,078 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
-2024-08-26 16:17:07,676 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
-2024-08-26 16:17:15,507 :INFO :FileUtilities: read_json_file_as_dictionary :The data from json file TestResult.json has been converted into dictionary.
-2024-08-26 16:56:12,831 :INFO :AndroidUtilities :Took screenshot and saved as Mobile_light_theme_controls_in_views_I_upload_the_image_26081612.png in screenshots folder.

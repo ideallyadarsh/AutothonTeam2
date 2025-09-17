@@ -1,7 +1,8 @@
-import time
+import time, os, inspect, datetime
 from Shell_FE_Behave_Tests.ApplicationLibrary.ControlLibrary.Template_Controls import TemplateControls
 from Shell_FE_Selenium_Core.SeleniumBase import SeleniumBase
 from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
+from Shell_FE_Selenium_Core.Utilities.LoggingUtilities import LoggingUtilities
 from Shell_FE_Selenium_Core.Utilities.SeleniumUtilities import SeleniumUtilities
 from Shell_FE_Selenium_Core.Utilities.WaitUtilities import WaitUtilities
 from Shell_FE_Requests_Core.RequestsBase import RequestsBase
@@ -25,16 +26,42 @@ class TemplateFunctions:
        
     def click_on_sign_in_button(self):
         WaitUtilities.wait_for_element_to_be_visible(self.autoControls.signin_button, 120)
+        self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
         SeleniumUtilities.click_element(self.autoControls.get_signin_button())
+        time.sleep(10)
        
     def enter_username_and_click_next(self):
-        SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), "mister_gupta")
+        credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+        self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+        SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), credentials["username"])
+        self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+        time.sleep(10)
+        # BrowserUtilities.log.info("Fetching username from environment variable")
+        # BrowserUtilities.log.info(f"Username fetched from environment variable is: {os.environ.get('TWITTER_USERNAME')}")
+        # SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), os.environ.get("TWITTER_USERNAME").strip())
         SeleniumUtilities.click_element(self.autoControls.get_next_button())
+        time.sleep(10)
+        # SeleniumUtilities.send_text(self.autoControls.get_username_input_field(), credentials["username"])
     
     def enter_password_and_click_log_in(self):
-        SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), "xxxxx")
-        SeleniumUtilities.click_element(self.autoControls.get_login_button())
-        WaitUtilities.wait_for_url_to_match_value("https://x.com/home", 60)
+        try:
+            credentials = FileUtilities.read_json_file_as_dictionary("TwitterCredentials/TwitterCredentials.json")
+            self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+            SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), credentials["password"])
+            self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+            time.sleep(10)
+            # BrowserUtilities.log.info("Fetching password from environment variable")
+            # BrowserUtilities.log.info(f"Password fetched from environment variable is: {os.environ.get('TWITTER_PASSWORD')}")
+            # SeleniumUtilities.send_text(self.autoControls.get_password_input_field(), os.environ.get("TWITTER_PASSWORD").strip())
+            self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+            SeleniumUtilities.click_element(self.autoControls.get_login_button())
+            self.autoControls.driver.save_screenshot(f"TestResults/Screenshots/{inspect.currentframe().f_code.co_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
+            time.sleep(10)
+            WaitUtilities.wait_for_url_to_match_value("https://x.com/home", 60)
+            time.sleep(10)
+        except Exception as e:
+            LoggingUtilities.log_error(f"An error occurred while logging in: {e}")
+            raise e
 
     def make_posts_and_verify_success(self):
         tweet_inputs = FileUtilities.read_json_file_as_dictionary("Tweets.json")
@@ -48,7 +75,7 @@ class TemplateFunctions:
         SeleniumUtilities.click_element(self.autoControls.get_search_button())
         WaitUtilities.wait_for_element_to_be_visible(self.autoControls.search_input_field, 60)
         SeleniumUtilities.send_text(self.autoControls.get_search_input_field(), "sign_revlis15sep")
-        SeleniumUtilities.click_element(self.autoControls.get_search_result_button())
+        SeleniumUtilities.double_click(self.autoControls.get_search_result_button())
 
     def take_screenshot_of_posts_and_save_locally(self):
         WaitUtilities.wait_for_element_to_be_visible(self.autoControls.tweet, 60)

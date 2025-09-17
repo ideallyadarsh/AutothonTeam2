@@ -6,7 +6,7 @@ from Shell_FE_Selenium_Core.Utilities.BrowserUtilities import BrowserUtilities
 from selenium.webdriver.common.by import By
 from Shell_FE_Selenium_Core.Utilities.SeleniumUtilities import SeleniumUtilities
 
-# run pipeline
+# restart pipeline
 @given(u'I Navigate to X')
 def step_impl(context):
     context.functions = TemplateFunctions()
@@ -32,7 +32,18 @@ def step_impl(context):
 def step_impl(context):
     context.functions.search_three_posts_and_verify_results()
 
-
 @then(u'I take a screenshot of the posts and save it in local')
 def step_impl(context):
     context.functions.take_screenshot_of_posts_and_save_locally()
+
+@given(u'I launch the step in application')
+def step_impl(context):
+    context.functions.launch_step_in_application()
+
+@when(u'I fetch product details')
+def step_impl(context):
+    context.functions.fetch_product_details()
+
+@then(u'I post and verify the product details')
+def step_impl(context): 
+    context.functions.post_and_verify_product_details()

@@ -1,17 +1,18 @@
 on:
   push:
     branches:
-      - main
+      - Aryan
   pull_request:
     branches:
-      - main
+      - Aryan
   workflow_dispatch:
 
 jobs:
   build:
     name: Setup, Run Tests, and Generate Reports
     runs-on: windows-latest
-
+    env:
+      AZURE_PAT_TOKEN: ${{ secrets.AZURE_PAT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,7 +20,6 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          # python-version: "3.11.2" # Specify your Python version
           python-version: "3.10.11" # Specify your Python version
 
       - name: Install dependencies
@@ -30,22 +30,29 @@ jobs:
           # behave
           # allure-behave
 
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "18" # Specify your Node.js version
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Specify your Node.js version
 
-      # - name: Install Allure CLI
-      #   run: npm install -g allure-commandline --save-dev
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --save-dev
 
-      # - name: Install  npm Appium Package
-      #   run: npm install -g appium
+      - name: Install  npm Appium Package
+        run: npm install -g appium
 
       - name: Run behave tests
         run: |
           cd Shell_FE_Behave_Tests
-          behave -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Template_Web.feature
+          behave --define remote=True -f allure_behave.formatter:AllureFormatter -o TestResults/AllureJson/ features/Template_Web.feature
         continue-on-error: true
+      
+      - name: Upload Test Results as an Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: Shell_FE_Behave_Tests/TestResults
 
       - name: Generate Allure Report
         run: |
