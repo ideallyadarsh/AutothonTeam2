@@ -32,7 +32,7 @@ current_working_directory = os.path.dirname(os.getcwd())
 #         SeleniumBase.initialize_values()
 
 def before_all(context):
-    # AppiumBase.start_appium_server()
+    AppiumBase.start_appium_server()
     SeleniumBase.initialize_values()
 
 def before_feature(context, feature):
